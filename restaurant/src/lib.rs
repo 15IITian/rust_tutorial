@@ -1,3 +1,21 @@
+use std::fmt::Result as rf;
+use std::io::Result as ri;
+use::rand::Rng;
+
+fn f1(){
+    let secret_number= rand::thread_rng().gen_range(1..=100);
+    let n= HashMap::new();
+}
+fn function1() -> rf{
+
+}
+
+fn function2() -> ri<()> {
+
+}
+
+
+
 mod front_of_house{
     pub mod hosting{
         pub fn add_to_waitlist(){}
@@ -9,27 +27,27 @@ mod front_of_house{
 mod back_of_house{
 
 
-    pub enum Appetizer{
-        soup,
-        Salad,
-    }
+    // pub enum Appetizer{
+    //     soup,
+    //     Salad,
+    // }
     
-    pub struct Breakfast
-    {
-        pub  toast: String,
-        seasonal_fruit:String,
-    }
+    // pub struct Breakfast
+    // {
+    //     pub  toast: String,
+    //     seasonal_fruit:String,
+    // }
     
-    impl Breakfast{
-        // #[derive(Debug)]
-       pub fn summer(toast: &str) -> Breakfast{
+    // impl Breakfast{
+    //     // #[derive(Debug)]
+    //    pub fn summer(toast: &str) -> Breakfast{
             
-            Breakfast{
-                toast: String::from(toast),
-                seasonal_fruit:String::from("papita"),
-            }
-        }
-    }
+    //         Breakfast{
+    //             toast: String::from(toast),
+                // seasonal_fruit:String::from("papita"),
+    //         }
+    //     }
+    // }
 
 
     // fn fix_incorrect_order(){
@@ -40,26 +58,13 @@ mod back_of_house{
     // fn cook_order(){}
 }
 
-    pub fn eat_at_restaurant(){
 
-    //     crate::front_of_house::hosting::add_to_waitlist();
-       
-    //    front_of_house::hosting::add_to_waitlist();
-
-    let meal= back_of_house::Breakfast::summer("Rye");
-      println!("my meal = {:?}", meal.toast);
-
-      meal.toast = String::from("Wheat");
-      println!("I'd like {} toast please",meal.toast);
-
-
-
-      meal.seasonal_fruit= String::from("Apple")
-   
-   
-      let order1= back_of_house::Appetizer::soup;
-      let order2= back_of_house::Appetizer::Salad;
+mod customer {
+       use crate::front_of_house::hosting;
+     pub fn eat_at_restaurant(){
+        hosting::add_to_waitlist();
     }
+   }
 
     fn deliver_order(){}
 
@@ -72,3 +77,8 @@ mod back_of_house{
 //         fn take_payments(){}
 //     }
 // }
+
+
+// restaurant::front_of_house::hosting::add_to_waitlist();
+
+// restaurant::hosting::add_to_waitlist();
