@@ -1,64 +1,147 @@
+// enum IpAddrKind{
+//     v4(u8,u8,u8,u8),
+//     v6(String),
+// }
+
+// struct IpAddr{
+//     kind:IpAddrKind,
+//     address:String,
+// }
+
+
+// struct Ipv4Addr{
+
+// }
+
+// struct Ipv6Addr{
+
+// }
+
+
+// enum IpAddr{
+//     v4(Ipv4Addr),
+//     v6(Ipv6Addr)
+// }
+
+// enum Message{
+//     Quit,
+//     Move{ x:i32, y:i32},
+//     Write(String),
+//     ChangeColor(i32,i32,i32),
+// }
+
+// impl Message{
+//   fn call(&self){
+
+//   }  
+
+  
+// }
+
 #[derive(Debug)]
-struct Rectangle{
-    width:u32,
-    height:u32,
+enum UsState{
+    Alabama,
+    Alaska
+}
+enum Coin{
+    Penny,
+    Nickel,
+    Dime,
+    Quarter(UsState),
 }
 
-impl Rectangle{
-    fn area(&self) -> u32{
-self.width * self.height
-    }
-
-    
-
-
-    fn can_hold(&self , other:&Rectangle) -> bool{
-           if self.width > other.width   && self.height > other.height
-           {
-            true
-           }
-           else{
-            false 
-           }
-    }
-
-
-    fn square(size:u32) -> Self{
-        Self { width: (size), height: (size) }
-    }
-}
-
-impl Rectangle{
-    fn width(&self) -> bool{
-        self.width >0
-    }
-}
 fn main(){
-    let scale=4;
-    let rect1= Rectangle{
-        width:dbg!(30*scale),
-        height:50
+    // let home= IpAddrKind::v4(127,0,9,8);
+    // let loopback= IpAddrKind::v6(String::from("::8"));
 
-    };
-    // if rect1.width(){
-    //     println!("the rectangle has a nonzero width {}", rect1.width);
-    // }
-    // println!("area = {} sqaure metres", rect1.area());
+    // let m= Message::Write(String::from("hello"));
+    // m.call();
 
-    // // println!("rect1= {:#?}", rect1)d
-    // dbg!(&rect1);
+    //option<t><
 
-    let rect2= Rectangle{
-        width:dbg!(10*scale),
-        height:40
-    };
+    // let some_number= Some(5);
+    // let some_char= Some('c');
 
-        println!("Rect1 can hold rect2 -> {}", rect1.can_hold(&rect2));
-        println!("Rec2 can hold rect1 -> {}", rect2.can_hold(&rect1));
+    // let absent  = None;
+
+    // let x:i8= 5;
+    // let y:Option<i8> = Some(5);
+    // let y= Some(5);
+    // let sum=x + y;
+//     let no = value_in_cents(Coin::Quarter(UsState::Alaska));
+   
+
+//    let five = Some(5);
+//    let six= plus_one(five);
+//    println!("six = {:?}", six);
+
+//    let none_= plus_one(None);
+//    pri,ntln!("nothing = {:?}",none_ );
+
+   
+
+//    let dice_roll= 9;
+//    match dice_roll{
+//     3 => add_fancy_hat(),
+//     7 => remove_fancy_hat(),
+//     // trial => move_player(trial),
+//     // _ => reroll(),
+//     _ => (),
+//    }
+
+let config_max= Some(3u8);
+match config_max {
+    Some(max)=> println!("The maximum is configured to be {}",max),
+    None=> (),
+}
 
 
-        let sq= Rectangle::square(5);
+if let Some(max) = config_max{
+    println!("The maximum is configured to be {}", max);
+}
+
+let coin =Coin::Penny;
+let mut non_quarter= 0;
+// match coin {
+//     Coin:: Quarter(state) => println!("State quarter form {:?}",state),
+//     _ => non_quarter += 1,
+// }
+
+
+if let Coin::Quarter(state) = coin{
+ println!("State quarter form {:?}",state);
+}
+else{
+    non_quarter +=1;
+}
+
 
 }
 
+// fn value_in_cents(coin:Coin) -> u8{
+//     match coin{
+//         Coin::Penny => {
+//             println!("Lucky penny!");
+//             1
+//         },
+//         Coin:: Nickel => 5,
+//         Coin::Quarter(state)=> {
+//             println!("the state is {:?}", state);
+//             25
+//         },
+//         Coin::Dime => 25,
+//     }
+// }
+
+// fn plus_one(x:Option<i32>) -> Option<i32>{
+//     match x{
+//         Some(i) => Some(i+1),
+//         None => None,
+//     }
+// }
+
+// fn add_fancy_hat(){}
+// fn remove_fancy_hat(){}
+// fn move_player(num_spaces:u8){}
+// fn reroll(){}
 
