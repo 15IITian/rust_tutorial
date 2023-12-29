@@ -1,43 +1,60 @@
+use std::collections::HashMap;
+
 fn main(){
-    let mut s= String::new();
 
-    let data= "hello";
-    s= data.to_string();
-// println!("{}", data);
-    s= "initial".to_string();
+//     let mut scores:HashMap<String,u8>= HashMap::new();
+//     scores.insert(String::from("Blue"), 10);
+// scores.insert(String::from("Yellow"), 50);
 
-    s= String::from("initial");
+// let team_name = String::from("Blue");
+// let score= scores.get(&team_name).copied().unwrap_or(0);
 
-    let hello = String::from("नमस्ते");
+// for (key,value) in &scores{
+//     println!("{key}: {value}");
+// }
 
-    let slice= &hello[0..3];
-    s.push_str(slice);
-    
-    
-    s.push('i');
-    println!("{}", s);
-    
-    let s1 = String::from("tic");
-    let s2 = String::from("tac");
-    let s3 = String::from("toe");
-    
-    // let s= s1+"-" +&s2 +"-" + &s3;
-    let s= format!("{s1}-{s2}-{s3}");
-    
-    println!("{}", s);
+// let field_name= String::from("Favorite color");
+// let field_value = String::from("Blue");
+
+// let mut map= HashMap::new();
+// map.insert(&field_name,&field_value);
+
+// println!("feild_name-> {}",field_name );
+
+// let mut scores= HashMap::new();
+
+// scores.insert(String::from("Blue"), 10);
+// // scores.insert(String::from("Blue"), 20);
 
 
-    // let h= s[0];
+// // let score= scores.get("Blue").copied();
+// // println!("{:#?}", score);
 
-    let hello = "Здравствуйте";
-    let answer= &hello[0..4];
+// // match score{
+// //     Some(T) => (),
+// //     None => {
+// //         scores.insert(String::from("blue"),20);
+// //     }
+// // }
+// println!("{:#?}", scores);
 
 
-    for c in "Зд".chars(){
-        println!("{c}");
-    }
+// let a= scores.entry(String::from("Yellow")).or_insert(70);
+// println!("a={:?}",a );
 
-     for c in "Зд".bytes(){
-        println!("{c}");
-    }
+// println!("{:#?}", scores);
+
+
+let text= "hello world wonderful world";
+let mut map= HashMap::new();
+for word in text.split_whitespace(){
+
+    let count= map.entry(word).or_insert(0);
+
+    println!("word = {}", word);
+    *count+=1;
+}
+
+println!("map = {:#?}", map);
+
 }
