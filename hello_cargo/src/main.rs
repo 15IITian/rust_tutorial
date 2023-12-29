@@ -144,4 +144,3 @@ else{
 // fn remove_fancy_hat(){}
 // fn move_player(num_spaces:u8){}
 // fn reroll(){}
-
