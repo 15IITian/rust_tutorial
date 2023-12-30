@@ -1,60 +1,100 @@
-use std::collections::HashMap;
+use std::fs:: File;
+// use std::io::ErrorKind;
+use std::fs;
+use std::io;
 
+
+
+// use std::io::{self,Read};
 fn main(){
-
-//     let mut scores:HashMap<String,u8>= HashMap::new();
-//     scores.insert(String::from("Blue"), 10);
-// scores.insert(String::from("Yellow"), 50);
-
-// let team_name = String::from("Blue");
-// let score= scores.get(&team_name).copied().unwrap_or(0);
-
-// for (key,value) in &scores{
-//     println!("{key}: {value}");
-// }
-
-// let field_name= String::from("Favorite color");
-// let field_value = String::from("Blue");
-
-// let mut map= HashMap::new();
-// map.insert(&field_name,&field_value);
-
-// println!("feild_name-> {}",field_name );
-
-// let mut scores= HashMap::new();
-
-// scores.insert(String::from("Blue"), 10);
-// // scores.insert(String::from("Blue"), 20);
+    // panic!("crash and burn");
 
 
-// // let score= scores.get("Blue").copied();
-// // println!("{:#?}", score);
+    // fn another();
 
-// // match score{
-// //     Some(T) => (),
-// //     None => {
-// //         scores.insert(String::from("blue"),20);
-// //     }
-// // }
-// println!("{:#?}", scores);
+    // let greeting_file_result= File::open("./hello.txt");
+    
+//     let greeting_file = match greeting_file_result{
+//        Result::Ok(file) => file,
+//         Err(error) => match error.kind(){
+//                    ErrorKind::NotFound => match File::create("hello.txt"){
+//                     Ok(f) => f,
+//                     Err(e)=> panic!("problem creating the file ={}", e),
+//                    },
+//                    other_error => {
+//                     panic!("Problem opening the file={}", other_error);
+//                    }
+//         }
+// };
+
+//  let greeting_file= File::open("hello.txt").unwrap_or_else(|error|{
+//     if error.kind() == ErrorKind::NotFound {
+//         File::create("hello.txt").unwrap_or_else(|error|{
+//             panic!("Problem creating the file: {:?}",error);
+//         })
+//     }
+//     else{
+//         panic!("Problem openign the file");
+//     }
+//  });
 
 
-// let a= scores.entry(String::from("Yellow")).or_insert(70);
-// println!("a={:?}",a );
-
-// println!("{:#?}", scores);
+// let greeting_file= File::open("hello.txt").unwrap();
 
 
-let text= "hello world wonderful world";
-let mut map= HashMap::new();
-for word in text.split_whitespace(){
 
-    let count= map.entry(word).or_insert(0);
+// let greeting_file= File::open("hello.txt")
+                                            //  .expect("hello.txt should be included in this project");
 
-    println!("word = {}", word);
-    *count+=1;
-}
 
-println!("map = {:#?}", map);
+    let greeting_file= File::open("hello.txt")?;                                        
+
 
 }
+
+
+// fn read_username_from_file() -> Result< String, io::Error>{  // Result<t,e>
+
+//     let username_file_result= File::open("hello.txt");
+
+//     let mut username_file= match username_file_result{
+//      Ok(file) =>file,
+//       Err(e) => return Err(e),
+//     };
+
+//     let mut username= String::new();
+
+//     match username_file.read_to_string(&mut username){
+//         Ok(_)=> Ok(username),
+//         Err(e) => Err(e),
+//     }
+
+// } 
+
+
+// fn read_username_from_file() -> Result< String, io::Error>{  // Result<t,e>
+
+//     let mut  username_file= File::open("hello.txt")?;
+
+//     // let mut username_file= match username_file_result{
+//     //  Ok(file) =>file,
+//     //   Err(e) => return Err(e),
+//     // };
+
+//     let mut username= String::new();
+
+//     username_file.read_to_string(&mut username)?;
+//     // match username_file.read_to_string(&mut username){
+//     //     Ok(_)=> Ok(username),
+//     //     Err(e) => Err(e),
+//     // }
+//     Ok(username)
+    
+
+// } 
+
+
+
+
+
+
